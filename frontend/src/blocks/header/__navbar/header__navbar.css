@@ -1,0 +1,5 @@
+.header__navbar{
+  display: flex;
+  align-items: baseline;
+  column-gap: 24px;
+}
