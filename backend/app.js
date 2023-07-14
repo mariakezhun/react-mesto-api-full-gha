@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const cors = require('cors');
 const routes = require('./routes/index');
 const ErrorMiddleware = require('./middlewares/ErrorMiddleware');
