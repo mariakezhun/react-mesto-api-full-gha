@@ -97,8 +97,4 @@ class Api {
 
 export const api = new Api({
   url: 'http://localhost:3000',
-  // headers: {
-  //   Authorization: 'bed1775f-78b2-4641-a910-a9a3c50e95a8',
-  //   'Content-Type': 'application/json',
-  // },
 });
