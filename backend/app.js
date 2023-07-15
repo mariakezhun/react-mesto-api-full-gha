@@ -1,4 +1,5 @@
 /* eslint-disable prefer-arrow-callback */
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -15,6 +16,12 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use(routes);
 app.use(errors());

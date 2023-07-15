@@ -3,9 +3,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const {
-  STATUS_CREATED,
-} = require('../utils/status');
+const { STATUS_CREATED } = require('../utils/status');
 
 const ConflictError = require('../errors/ConflictError');
 const NotFoundError = require('../errors/NotFoundError');
@@ -40,9 +38,13 @@ const login = (req, res, next) => {
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', {
-        expiresIn: '7d',
-      });
+      const token = jwt.sign(
+        { _id: user._id },
+        process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : 'dev-secret',
+        {
+          expiresIn: '7d',
+        },
+      );
 
       res.send({ token });
     })
@@ -71,15 +73,11 @@ const getUserById = (req, res, next) => {
 };
 
 const updateUser = (req, res, next, data) => {
-  User.findByIdAndUpdate(
-    req.user._id,
-    data,
-    {
-      new: true,
-      runValidators: true,
-      upsert: false,
-    },
-  )
+  User.findByIdAndUpdate(req.user._id, data, {
+    new: true,
+    runValidators: true,
+    upsert: false,
+  })
     .then((user) => {
       res.send(user);
     })
