@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.116.213
+IP 158.160.116.213
 
 Frontend https://mkezhun.nomoredomains.xyz
 
