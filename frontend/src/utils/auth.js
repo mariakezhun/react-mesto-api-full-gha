@@ -45,4 +45,4 @@ class Auth {
   }
 }
 
-export const auth = new Auth({ BASE_URL: "http://localhost:3000" });
+export const auth = new Auth({ BASE_URL: "http://mkezhun.back.nomoredomains.xyz" });

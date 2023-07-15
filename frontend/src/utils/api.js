@@ -96,5 +96,5 @@ class Api {
 }
 
 export const api = new Api({
-  url: 'http://localhost:3000',
+  url: 'http://mkezhun.back.nomoredomains.xyz',
 });
